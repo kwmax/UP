@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabs_rg" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5pt"
+        android:layout_above="@+id/tabs_rg"
+        android:background="#dcdcdc"/>
+
+    <RadioGroup
+        android:id="@+id/tabs_rg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/today_tab"
+            style="@style/Custom.TabRadioButton"
+            android:checked="true"
+            android:text="待办" />
+
+        <RadioButton
+            android:id="@+id/tomato_tab"
+            style="@style/Custom.TabRadioButton"
+            android:text="番茄" />
+
+        <RadioButton
+            android:id="@+id/note_tab"
+            style="@style/Custom.TabRadioButton"
+            android:text="笔记" />
+
+        <RadioButton
+            android:id="@+id/settings_tab"
+            style="@style/Custom.TabRadioButton"
+            android:text="我的" />
+    </RadioGroup>
+
+
+</RelativeLayout>
