@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.kwmax.self.discipline.R;
 
@@ -13,8 +14,6 @@ import com.kwmax.self.discipline.R;
  * Desc:
  */
 public class MineTabFragment extends BasicFragment {
-
-    private RecyclerView recomlist;
 
     public MineTabFragment() {}
 
@@ -27,6 +26,8 @@ public class MineTabFragment extends BasicFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mineView = inflater.inflate(R.layout.fragment_mine, container, false);
 
+        TextView title = mineView.findViewById(R.id.top_text);
+        title.setText("我的");
         return mineView;
     }
 

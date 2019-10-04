@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.kwmax.self.discipline.widget.TomatoView;
+
 /**
  * Created by kwmax on 2019/10/3.
  */
@@ -22,5 +24,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TomatoView tomatoView = findViewById(R.id.tomato_view);
+        tomatoView.start();
     }
 }

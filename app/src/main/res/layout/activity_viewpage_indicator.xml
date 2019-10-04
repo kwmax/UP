@@ -26,20 +26,20 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/today_tab"
-            style="@style/Custom.TabRadioButton"
-            android:checked="true"
-            android:text="待办" />
-
-        <RadioButton
             android:id="@+id/tomato_tab"
             style="@style/Custom.TabRadioButton"
+            android:checked="true"
             android:text="番茄" />
+
+        <RadioButton
+            android:id="@+id/todolist_tab"
+            style="@style/Custom.TabRadioButton"
+            android:text="待办" />
 
         <RadioButton
             android:id="@+id/note_tab"
             style="@style/Custom.TabRadioButton"
-            android:text="笔记" />
+            android:text="复盘" />
 
         <RadioButton
             android:id="@+id/settings_tab"

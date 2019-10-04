@@ -15,4 +15,28 @@
         android:layout_centerVertical="true"
         android:textSize="40px"/>
 
+    <ImageView
+        android:id="@+id/menu1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_toLeftOf="@+id/menu2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/toolbar_add"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/menu2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/toolbar_delete"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

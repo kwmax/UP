@@ -43,8 +43,8 @@ public class ViewPageIndicatorActivity extends AppCompatActivity {
         noteTabFragment = new NoteTabFragment();
         mineFragment = new MineTabFragment();
 
-        mFragmentSparseArray.append(R.id.today_tab, scheduleTabFragment);
         mFragmentSparseArray.append(R.id.tomato_tab, tomatoTabFragment);
+        mFragmentSparseArray.append(R.id.todolist_tab, scheduleTabFragment);
         mFragmentSparseArray.append(R.id.note_tab, noteTabFragment);
         mFragmentSparseArray.append(R.id.settings_tab, mineFragment);
 
@@ -58,7 +58,7 @@ public class ViewPageIndicatorActivity extends AppCompatActivity {
         });
         // 默认显示第一个
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
-                mFragmentSparseArray.get(R.id.today_tab)).commit();
+                mFragmentSparseArray.get(R.id.tomato_tab)).commit();
 
     }
 }

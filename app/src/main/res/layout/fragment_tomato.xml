@@ -5,174 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        layout="@layout/layout_toolbar_noback"/>
+
     <LinearLayout
-        android:id="@+id/min_personnal_layout"
+        android:id="@+id/quick_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/toolbar_red"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:paddingLeft="10dp">
+        android:orientation="vertical"
+        android:layout_margin="10dp">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mine_personal_name"
-                    android:layout_margin="5dp"
-                    android:text="Muke"
-                    android:textSize="20dp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+            android:text="快速开始"
+            android:textColor="@color/gray"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
 
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="新建任务"
+                android:layout_toLeftOf="@+id/quick_dura"/>
             <TextView
+                android:id="@+id/quick_dura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/mine_personal_tag"
-                android:text="这个人很懒，什么都没留下"/>
-        </LinearLayout>
+                android:text="25min"
+                android:layout_toLeftOf="@+id/quickstart"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"/>
+            <Button
+                android:id="@+id/quickstart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="快速开始"
+                android:layout_alignParentRight="true"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        </RelativeLayout>
 
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/mine_order_layout"
+        android:id="@+id/todolist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_margin="10dp">
 
         <TextView
-            android:id="@+id/mine_order_share"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:text="我租用的">
-        </TextView>
+            android:text="任务列表"
+            android:textColor="@color/gray"/>
 
-        <TextView
-            android:id="@+id/mine_order_rent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:text="我试用的">
-        </TextView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tomato_todolist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:visibility="visible">
+        </android.support.v7.widget.RecyclerView>
 
-        <TextView
-            android:id="@+id/mine_order_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:text="我发布的">
-        </TextView>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/mine_likelist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我的收藏"
-            android:textSize="16dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/mine_income"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我的收入"
-            android:textSize="16dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/mine_serviceonline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="客服帮助"
-            android:textSize="16dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/mine_setting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设置"
-            android:textSize="16dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
 
 </LinearLayout>
