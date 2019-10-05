@@ -7,25 +7,28 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by keweimeng on 2019/10/4.
+ * Created by kwmax on 2019/10/4.
  */
-public class TomatoAddDialog extends DialogFragment {
+public class TomatoGiveUpDialog extends DialogFragment {
     private static final String TITLE = "title";
     private operateTomatoListener operateTomatoListener;
-
     private String title;
 
-    public static TomatoAddDialog getInstance(String title) {
+    public static TomatoGiveUpDialog getInstance(String title) {
         Bundle bundle = new Bundle();
         bundle.putString(TITLE, title);
-        TomatoAddDialog tomatoAddDialog = new TomatoAddDialog();
+        TomatoGiveUpDialog tomatoAddDialog = new TomatoGiveUpDialog();
         tomatoAddDialog.setArguments(bundle);
         return tomatoAddDialog;
     }
@@ -47,34 +50,53 @@ public class TomatoAddDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        final View view = inflater.inflate(R.layout.dialog_tomato_add, null);
+        final View view = inflater.inflate(R.layout.dialog_tomato_giveup, null);
 
         TextView tv_title = (TextView) view.findViewById(R.id.top_text);
-        ImageView menu1 = (ImageView) view.findViewById(R.id.menu1);
-        ImageView menu2 = (ImageView) view.findViewById(R.id.menu2);
-        menu1.setVisibility(View.VISIBLE);
-        menu2.setVisibility(View.VISIBLE);
-        menu1.setImageDrawable(getActivity().getDrawable(R.drawable.confirm));
-        menu2.setImageDrawable(getActivity().getDrawable(R.drawable.close));
-
-        final EditText content = (EditText) view.findViewById(R.id.todo_content);
-        final EditText dura = (EditText) view.findViewById(R.id.todo_dura);
-
         tv_title.setText(title);
-        menu1.setOnClickListener(new View.OnClickListener() {
+
+        final EditText reason = (EditText) view.findViewById(R.id.giveup_reason);
+        Button cancel = (Button) view.findViewById(R.id.giveup_cancel);
+        final Button confirm = (Button) view.findViewById(R.id.giveup_confirm);
+
+        reason.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                if (operateTomatoListener != null){
-                    operateTomatoListener.addTomato(content.getText().toString(),dura.getText().toString());
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!TextUtils.isEmpty(reason.getText().toString())){
+                    confirm.setClickable(true);
+                    confirm.setTextColor(getResources().getColor(R.color.black));
+                }else {
+                    confirm.setClickable(false);
+                    confirm.setTextColor(getResources().getColor(R.color.gray));
                 }
             }
         });
-        menu2.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (operateTomatoListener != null){
                     operateTomatoListener.cancal();
                 }
+               dismiss();
+            }
+        });
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (operateTomatoListener != null){
+                    operateTomatoListener.giveup(reason.getText().toString());
+                }
+                dismiss();
             }
         });
 

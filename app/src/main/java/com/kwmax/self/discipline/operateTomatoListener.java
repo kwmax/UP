@@ -6,4 +6,5 @@ package com.kwmax.self.discipline;
 public interface operateTomatoListener {
     void addTomato(String tomato, String minCount);
     void cancal();
+    void giveup(String reason);
 }

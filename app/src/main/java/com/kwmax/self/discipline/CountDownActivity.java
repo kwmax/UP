@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kwmax.self.discipline.model.TomatoTodo;
 import com.kwmax.self.discipline.widget.TomatoView;
 
 /**
@@ -54,13 +55,19 @@ public class CountDownActivity extends AppCompatActivity implements View.OnClick
             case R.id.tomato_pause:
                 break;
             case R.id.tomato_stop:
+                showGiveUpDialog();
                 break;
             case R.id.tomato_back:
+                showGiveUpDialog();
                 break;
             default:
                 break;
         }
     }
 
+    private void showGiveUpDialog(){
+        final TomatoGiveUpDialog dialogFragment = TomatoGiveUpDialog.getInstance("确定放弃番茄任务？");
+        dialogFragment.show(getSupportFragmentManager());
+    }
 
 }

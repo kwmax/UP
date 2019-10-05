@@ -10,7 +10,16 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/back"
-        android:layout_margin="15dp"/>
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:id="@+id/tomato_encourage"
+        android:text="坚持，就是胜利"
+        android:gravity="center"
+        android:textSize="18dp"/>
 
     <com.kwmax.self.discipline.widget.TomatoView
         android:id="@+id/tomato_view"

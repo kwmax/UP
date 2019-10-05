@@ -1,15 +1,20 @@
 package com.kwmax.self.discipline.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.kwmax.self.discipline.CountDownActivity;
 import com.kwmax.self.discipline.R;
 import com.kwmax.self.discipline.TomatoAddDialog;
 import com.kwmax.self.discipline.TomatoTodolistAdapter;
@@ -21,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by keweimeng on 2019/3/10.
+ * Created by kwmax on 2019/3/10.
  */
 public class TomatoTabFragment extends BasicFragment implements View.OnClickListener {
 
@@ -31,6 +36,8 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
 
     private ImageView toolbarAdd;
     private ImageView toolbarDelete;
+    private EditText quickName;
+    private Button quickStart;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,13 +54,15 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
         toolbarAdd.setVisibility(View.VISIBLE);
         toolbarDelete = view.findViewById(R.id.menu2);
         toolbarDelete.setVisibility(View.VISIBLE);
-
+        quickName  = view.findViewById(R.id.quick_name);
+        quickStart = view.findViewById(R.id.quickstart);
         tomatoRecycler = view.findViewById(R.id.tomato_todolist);
-        tomatoTodoList = new ArrayList<>();
 
+        quickStart.setOnClickListener(this);
         toolbarAdd.setOnClickListener(this);
         toolbarDelete.setOnClickListener(this);
 
+        tomatoTodoList = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         tomatoRecycler.setLayoutManager(manager);
         TomatoTodolistAdapter adapter = new TomatoTodolistAdapter(getContext(), tomatoTodoList);
@@ -78,6 +87,11 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
                     public void cancal() {
                         dialogFragment.dismiss();
                     }
+
+                    @Override
+                    public void giveup(String reason) {
+
+                    }
                 });
                 break;
             case R.id.menu2:
@@ -85,6 +99,13 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
             case R.id.tomato_pause:
                 break;
             case R.id.tomato_stop:
+                break;
+            case R.id.quickstart:
+                String quickname = quickName.getText().toString().trim();
+
+                Intent intent = new Intent(getActivity(), CountDownActivity.class);
+                startActivity(intent);
+
                 break;
             default:
                 break;
