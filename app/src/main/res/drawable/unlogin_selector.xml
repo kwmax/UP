@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 不可点击时 -->
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="#E3A509" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+    <!-- 选中时 -->
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#E3A509" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+    <!-- 按下 -->
+    <item android:layout_width="wrap_content" android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#E3A509" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+    <!-- 抬起时,不选中 -->
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/login_disable" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+</selector>

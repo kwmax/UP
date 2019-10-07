@@ -4,23 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.kwmax.self.discipline.CountDownActivity;
+import com.kwmax.self.discipline.activity.CountDownActivity;
 import com.kwmax.self.discipline.R;
 import com.kwmax.self.discipline.TomatoAddDialog;
-import com.kwmax.self.discipline.TomatoTodolistAdapter;
+import com.kwmax.self.discipline.adapter.TomatoTodolistAdapter;
 import com.kwmax.self.discipline.model.TomatoTodo;
 import com.kwmax.self.discipline.operateTomatoListener;
-import com.kwmax.self.discipline.widget.TomatoView;
 
 import java.util.ArrayList;
 import java.util.List;

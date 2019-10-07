@@ -1,4 +1,4 @@
-package com.kwmax.self.discipline;
+package com.kwmax.self.discipline.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.widget.RadioGroup;
 
+import com.kwmax.self.discipline.R;
 import com.kwmax.self.discipline.fragment.MineTabFragment;
 import com.kwmax.self.discipline.fragment.NoteTabFragment;
 import com.kwmax.self.discipline.fragment.ScheduleTabFragment;

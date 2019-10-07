@@ -1,4 +1,4 @@
-package com.kwmax.self.discipline;
+package com.kwmax.self.discipline.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kwmax.self.discipline.R;
 import com.kwmax.self.discipline.model.ScheduleTodo;
 
 import java.util.List;

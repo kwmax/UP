@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.kwmax.self.discipline.R;
-import com.kwmax.self.discipline.ScheduleTodolistAdapter;
+import com.kwmax.self.discipline.adapter.ScheduleTodolistAdapter;
 import com.kwmax.self.discipline.model.ScheduleTodo;
 import java.util.ArrayList;
 import java.util.List;

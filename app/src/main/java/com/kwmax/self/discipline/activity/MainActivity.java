@@ -1,4 +1,4 @@
-package com.kwmax.self.discipline;
+package com.kwmax.self.discipline.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.kwmax.self.discipline.R;
 import com.kwmax.self.discipline.widget.TomatoView;
 
 /**
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ViewPageIndicatorActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewPageIndicatorActivity.class);
                 startActivity(intent);
             }
         });

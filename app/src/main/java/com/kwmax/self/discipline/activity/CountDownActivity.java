@@ -1,4 +1,4 @@
-package com.kwmax.self.discipline;
+package com.kwmax.self.discipline.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,7 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kwmax.self.discipline.R;
+import com.kwmax.self.discipline.TomatoGiveUpDialog;
 import com.kwmax.self.discipline.model.TomatoTodo;
+import com.kwmax.self.discipline.operateTomatoListener;
 import com.kwmax.self.discipline.widget.TomatoView;
 
 /**
@@ -67,7 +70,22 @@ public class CountDownActivity extends AppCompatActivity implements View.OnClick
 
     private void showGiveUpDialog(){
         final TomatoGiveUpDialog dialogFragment = TomatoGiveUpDialog.getInstance("确定放弃番茄任务？");
-        dialogFragment.show(getSupportFragmentManager());
+        dialogFragment.show(getSupportFragmentManager(), new operateTomatoListener() {
+            @Override
+            public void addTomato(String tomato, String minCount) {
+
+            }
+
+            @Override
+            public void cancal() {
+
+            }
+
+            @Override
+            public void giveup(String reason) {
+
+            }
+        });
     }
 
 }

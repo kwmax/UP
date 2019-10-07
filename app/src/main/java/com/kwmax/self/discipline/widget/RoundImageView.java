@@ -1,4 +1,4 @@
-package com.kwmax.self.discipline;
+package com.kwmax.self.discipline.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,6 +15,9 @@ import android.graphics.drawable.NinePatchDrawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+
+import com.kwmax.self.discipline.R;
+
 /**
  * 圆形ImageView，可设置最多两个宽度不同且颜色不同的圆形边框。 背景色的时候需要图片是透明的
  *
