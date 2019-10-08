@@ -108,12 +108,12 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/pagerContainer">
-        <com.kwmax.self.discipline.calendar.WeekViewPager
+        <com.kwmax.up.calendar.WeekViewPager
             android:id="@+id/weekViewPager"
             android:layout_width="match_parent"
             android:visibility="invisible"
             android:layout_height="45dp" />
-        <com.kwmax.self.discipline.calendar.MonthViewPager
+        <com.kwmax.up.calendar.MonthViewPager
             android:id="@+id/monthViewPager"
             android:layout_width="match_parent"
             android:visibility="invisible"

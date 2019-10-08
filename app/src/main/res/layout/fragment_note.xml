@@ -8,11 +8,11 @@
     <include
         layout="@layout/layout_toolbar_noback"/>
 
-    <com.kwmax.self.discipline.calendar.view.CalendarLayoutView
+    <com.kwmax.up.calendar.view.CalendarLayoutView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </com.kwmax.self.discipline.calendar.view.CalendarLayoutView>
+    </com.kwmax.up.calendar.view.CalendarLayoutView>
 
     <FrameLayout
         android:layout_width="match_parent"
