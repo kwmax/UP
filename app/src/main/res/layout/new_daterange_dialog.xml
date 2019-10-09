@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/daterange_board"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/selected_time"
+            android:layout_width="60dp"
+            android:layout_height="90px"
+            android:text=""
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textColor="@color/black"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/select_dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10px"
+            android:orientation="horizontal"
+            android:paddingBottom="30px"
+            android:paddingLeft="40px"
+            android:paddingRight="40px"
+            android:paddingTop="30px">
+
+            <com.kwmax.up.DatePickerView
+                android:id="@+id/year_pv"
+                android:layout_width="0px"
+                android:layout_height="320px"
+                android:layout_weight="1" />
+
+            <com.kwmax.up.DatePickerView
+                android:id="@+id/month_pv"
+                android:layout_width="0px"
+                android:layout_height="320px"
+                android:layout_weight="1" />
+
+            <com.kwmax.up.DatePickerView
+                android:id="@+id/day_pv"
+                android:layout_width="0px"
+                android:layout_height="320px"
+                android:layout_weight="1" />
+
+            <com.kwmax.up.DatePickerView
+                android:id="@+id/hour_pv"
+                android:layout_width="0px"
+                android:layout_height="320px"
+                android:layout_weight="1" />
+
+            <com.kwmax.up.DatePickerView
+                android:id="@+id/minute_pv"
+                android:layout_width="0px"
+                android:layout_height="320px"
+                android:layout_weight="1" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <LinearLayout
+            android:id="@+id/select_event"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_below="@+id/select_dialog_content"
+            android:layout_marginTop="5px"
+            android:background="@color/gray">
+
+            <TextView
+                android:id="@+id/tv_cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.kwmax.up.OnItemClickListener;
 import com.kwmax.up.R;
 import com.kwmax.up.model.ScheduleTodo;
 
@@ -22,10 +22,15 @@ public class ScheduleTodolistAdapter extends RecyclerView.Adapter<ScheduleTodoli
 
     private List<ScheduleTodo> scheduleTodoList;
     private Context context;
+    private OnItemClickListener onItemClickListener;
 
     public ScheduleTodolistAdapter(Context context, List<ScheduleTodo> scheduleTodoList) {
         this.scheduleTodoList = scheduleTodoList;
         this.context = context;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -36,26 +41,40 @@ public class ScheduleTodolistAdapter extends RecyclerView.Adapter<ScheduleTodoli
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int pos) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int pos) {
 
         ScheduleTodo todo = scheduleTodoList.get(pos);
         viewHolder.selected.setVisibility(View.GONE);
-//        if (todo.getStar() != null && todo.getStar().equals("1")){
-//            viewHolder.star.setImageDrawable(context.getDrawable(R.drawable.star));
-//        }
-//
-//        viewHolder.time.setText(todo.getTime());
-//        viewHolder.title.setText(todo.getTitle());
-//        if (TextUtils.isEmpty(todo.getContent())){
-//            viewHolder.content.setVisibility(View.GONE);
-//        }else {
-//            viewHolder.content.setText(todo.getContent());
-//        }
+        if (todo.getStar() != null && todo.getStar().equals("1")) {
+            viewHolder.star.setImageDrawable(context.getDrawable(R.drawable.star));
+        }
+
+        viewHolder.time.setText(todo.getTime());
+        viewHolder.title.setText(todo.getName());
+        if (TextUtils.isEmpty(todo.getContent())) {
+            viewHolder.content.setVisibility(View.GONE);
+        } else {
+            viewHolder.content.setText(todo.getContent());
+        }
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null){
+                    onItemClickListener.OnItemClick(viewHolder.itemView,pos);
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return scheduleTodoList.size();
+    }
+
+    public void refresh(List<ScheduleTodo> datas) {
+        scheduleTodoList = datas;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -66,7 +85,7 @@ public class ScheduleTodolistAdapter extends RecyclerView.Adapter<ScheduleTodoli
         private TextView title;
         private TextView content;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
             star = itemView.findViewById(R.id.star);
             selected = itemView.findViewById(R.id.selected);

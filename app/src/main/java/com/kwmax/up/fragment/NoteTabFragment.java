@@ -1,6 +1,7 @@
 package com.kwmax.up.fragment;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.kwmax.up.R;
-
+import com.kwmax.up.db.DiaryReviewsOperation;
+import com.kwmax.up.model.DiaryReview;
+import java.util.List;
 
 /**
  * Created by keweimeng on 2019/3/10.
@@ -34,7 +36,7 @@ public class NoteTabFragment extends BasicFragment {
         View noteView = inflater.inflate(R.layout.fragment_note, container, false);
 
         TextView title = noteView.findViewById(R.id.top_text);
-        title.setText("笔记");
+        title.setText("复盘");
 
         noteAddLayout = noteView.findViewById(R.id.frame_note_add);
         noteEditLayout = noteView.findViewById(R.id.frame_note_edit);
@@ -60,7 +62,15 @@ public class NoteTabFragment extends BasicFragment {
         noteSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                refreshShowLayout(true);
+                if (!TextUtils.isEmpty(noteEditTitle.getText().toString()) &&
+                    !TextUtils.isEmpty(noteEditContent.getText().toString())){
+                    DiaryReview review = new DiaryReview();
+                    review.setName(noteEditTitle.getText().toString());
+                    review.setContent(noteEditContent.getText().toString());
+                    DiaryReviewsOperation.insertData(getActivity(),review);
+                    refreshShowLayout(true);
+                    refreshData();
+                }
             }
         });
         noteEdit.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +81,15 @@ public class NoteTabFragment extends BasicFragment {
         });
 
         return noteView;
+    }
+
+    private void refreshData(){
+        List<DiaryReview> reviews = DiaryReviewsOperation.queryAll(getActivity());
+        if (reviews!= null && reviews.size()>0){
+            refreshShowLayout(true);
+            noteShowTitle.setText(reviews.get(0).getName());
+            noteShowContent.setText(reviews.get(0).getContent());
+        }
     }
 
     private void refreshAddLayout(boolean visible){

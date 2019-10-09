@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kwmax.up.R;
+import com.kwmax.up.db.TomatoTodoOperation;
 import com.kwmax.up.model.TomatoTodo;
 
 import java.util.List;
@@ -39,8 +40,14 @@ public class TomatoTodolistAdapter extends RecyclerView.Adapter<TomatoTodolistAd
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int pos) {
 
         TomatoTodo todo = tomatoTodoList.get(pos);
-//        viewHolder.dura.setText(TextUtils.isEmpty(todo.getDuration())?"":todo.getDuration());
-//        viewHolder.content.setText(TextUtils.isEmpty(todo.getContent())?"":todo.getContent()+"min");
+        viewHolder.dura.setText(TextUtils.isEmpty(todo.getDuration())?"":todo.getDuration());
+        viewHolder.content.setText(TextUtils.isEmpty(todo.getContent())?"":todo.getContent()+"min");
+    }
+
+    public void refresh(){
+        List<TomatoTodo> alldata = TomatoTodoOperation.queryAll(context);
+        tomatoTodoList = alldata;
+        notifyDataSetChanged();
     }
 
     @Override

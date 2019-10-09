@@ -16,6 +16,7 @@ import com.kwmax.up.R;
 import com.kwmax.up.activity.CountDownActivity;
 import com.kwmax.up.TomatoAddDialog;
 import com.kwmax.up.adapter.TomatoTodolistAdapter;
+import com.kwmax.up.db.TomatoTodoOperation;
 import com.kwmax.up.model.TomatoTodo;
 import com.kwmax.up.operateTomatoListener;
 
@@ -29,6 +30,7 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
 
 
     private RecyclerView tomatoRecycler;
+    private TomatoTodolistAdapter adapter;
     private List<TomatoTodo> tomatoTodoList;
 
     private ImageView toolbarAdd;
@@ -60,9 +62,10 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
         toolbarDelete.setOnClickListener(this);
 
         tomatoTodoList = new ArrayList<>();
+        tomatoTodoList = TomatoTodoOperation.queryAll(getActivity());
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         tomatoRecycler.setLayoutManager(manager);
-        TomatoTodolistAdapter adapter = new TomatoTodolistAdapter(getContext(), tomatoTodoList);
+        adapter = new TomatoTodolistAdapter(getContext(), tomatoTodoList);
         tomatoRecycler.setAdapter(adapter);
     }
 
@@ -75,8 +78,11 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
                 dialogFragment.show(getFragmentManager(), new operateTomatoListener() {
                     @Override
                     public void addTomato(String tomato, String minCount) {
-//                        tomatoTodoList.add(new TomatoTodo(tomato,minCount));
-                        tomatoRecycler.invalidate();
+                        TomatoTodo tomatoTodo = new TomatoTodo();
+                        tomatoTodo.setContent(tomato);
+                        tomatoTodo.setDuration(minCount);
+                        TomatoTodoOperation.insertData(getActivity(),tomatoTodo);
+                        adapter.refresh();
                         dialogFragment.dismiss();
                     }
 

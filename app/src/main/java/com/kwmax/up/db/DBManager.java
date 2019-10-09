@@ -79,8 +79,7 @@ public class DBManager {
         if (null == mDaoMaster) {
             synchronized (DBManager.class) {
                 if (null == mDaoMaster) {
-                    MyOpenHelper helper = new MyOpenHelper(context,DB_NAME,null);
-                    mDaoMaster = new DaoMaster(helper.getWritableDatabase());
+                    mDaoMaster = new DaoMaster(getWritableDatabase(context));
                 }
             }
         }
