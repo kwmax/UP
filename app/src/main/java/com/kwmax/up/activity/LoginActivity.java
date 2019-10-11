@@ -16,7 +16,7 @@ import com.kwmax.up.R;
 /**
  * Created by kwmax on 2019/10/7.
  */
-public class LoginActivity extends Activity implements View.OnClickListener {
+public class LoginActivity extends BasicActivity implements View.OnClickListener {
 
     private EditText et_account;
     private EditText et_password;

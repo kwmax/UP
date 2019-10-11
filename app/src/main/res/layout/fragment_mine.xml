@@ -16,7 +16,8 @@
             android:id="@+id/inspiration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lightblue" />
+            android:background="@color/lightblue"
+            android:visibility="gone"/>
 
         <com.kwmax.up.widget.RoundImageView
             android:id="@+id/avator"

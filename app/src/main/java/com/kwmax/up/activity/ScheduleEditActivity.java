@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * Created by keweimeng on 2019/6/3.
  */
-public class ScheduleEditActivity extends Activity implements View.OnClickListener{
+public class ScheduleEditActivity extends BasicActivity implements View.OnClickListener{
 
     private Button back,save;
     private EditText et_name;

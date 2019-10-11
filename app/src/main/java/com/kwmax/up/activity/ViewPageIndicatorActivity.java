@@ -16,7 +16,7 @@ import com.kwmax.up.fragment.TomatoTabFragment;
 /**
  * Created by keweimeng on 2019/10/3.
  */
-public class ViewPageIndicatorActivity extends AppCompatActivity {
+public class ViewPageIndicatorActivity extends BasicActivity {
 
     private RadioGroup mTabRadioGroup;
     private SparseArray<Fragment> mFragmentSparseArray;

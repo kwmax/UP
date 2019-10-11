@@ -15,7 +15,7 @@ import com.kwmax.up.widget.TomatoView;
 /**
  * Created by keweimeng on 2019/10/4.
  */
-public class CountDownActivity extends AppCompatActivity implements View.OnClickListener {
+public class CountDownActivity extends BasicActivity implements View.OnClickListener {
 
     private TextView quickStart;
     private ImageView tomatoPause;
