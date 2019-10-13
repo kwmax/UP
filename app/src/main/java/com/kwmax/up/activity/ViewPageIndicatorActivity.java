@@ -54,12 +54,18 @@ public class ViewPageIndicatorActivity extends BasicActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // 具体的fragment切换逻辑可以根据应用调整，例如使用show()/hide()
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        mFragmentSparseArray.get(checkedId)).commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                        mFragmentSparseArray.get(checkedId)).commit();
 
-//                getFragmentManager().beginTransaction().hide(currentFragment)
-//                        .show(mFragmentSparseArray.get(checkedId)).commit();
-//                currentFragment
+                Fragment to = mFragmentSparseArray.get(checkedId);
+                if (!to.isAdded()){
+                    getSupportFragmentManager().beginTransaction().hide(currentFragment)
+                            .add(R.id.fragment_container,to).commit();
+                }else {
+                    getSupportFragmentManager().beginTransaction().hide(currentFragment)
+                            .show(to).commit();
+                }
+                currentFragment = mFragmentSparseArray.get(checkedId);
             }
         });
         // 默认显示第一个
