@@ -35,8 +35,6 @@ public class CalendarLayoutView extends LinearLayout implements OnCalendarViewCl
     private ViewGroup calendarView;
     private ViewGroup pagerContainer;
     private TextView tvShowDate;
-    private TextView switchText;
-    private ImageView switchImage;
     // 周视图
     private WeekViewPager weekViewPager;
     // 月视图
@@ -136,29 +134,21 @@ public class CalendarLayoutView extends LinearLayout implements OnCalendarViewCl
                 }
             }
         });
-//        ImageView imgSwitch = (ImageView) calendarView.findViewById(R.id.img_switch);
-        LinearLayout switchLayout = calendarView.findViewById(R.id.mode_switch);
-        switchText = calendarView.findViewById(R.id.switch_text);
-        switchImage = calendarView.findViewById(R.id.switch_image);
 
-        switchLayout.setOnClickListener(new OnClickListener() {
+        TextView tvSwitch = calendarView.findViewById(R.id.tv_switch);
+        tvSwitch.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (weekViewPager.getVisibility() == VISIBLE) {
                     //切换成月模式
-                    switchText.setText("收起日历");
-                    switchImage.setImageDrawable(getResources().getDrawable(R.drawable.switch_week));
                     weekViewPager.setVisibility(GONE);
                     monthViewPager.setVisibility(VISIBLE);
                     monthViewPager.setSelectedDate(selectedDate);
 
                     pagerContainer.addView(monthViewPager);
                     pagerContainer.removeView(weekViewPager);
-
                 } else {
                     //切换成周模式
-                    switchText.setText("展开日历");
-                    switchImage.setImageDrawable(getResources().getDrawable(R.drawable.switch_month));
                     weekViewPager.setVisibility(VISIBLE);
                     monthViewPager.setVisibility(GONE);
                     weekViewPager.setSelectedDate(selectedDate);
@@ -184,17 +174,11 @@ public class CalendarLayoutView extends LinearLayout implements OnCalendarViewCl
                 if ("WEEK".equalsIgnoreCase(SHOW_MODE)) {
                     weekViewPager.setVisibility(VISIBLE);
                     monthViewPager.setVisibility(GONE);
-
                     pagerContainer.removeView(monthViewPager);
-                    switchText.setText("展开日历");
-                    switchImage.setImageDrawable(getResources().getDrawable(R.drawable.switch_month));
                 } else {
                     monthViewPager.setVisibility(VISIBLE);
                     weekViewPager.setVisibility(GONE);
-
                     pagerContainer.removeView(weekViewPager);
-                    switchText.setText("收起日历");
-                    switchImage.setImageDrawable(getResources().getDrawable(R.drawable.switch_week));
                 }
 
                 if (onCalendarViewSizeChangedListener != null) {

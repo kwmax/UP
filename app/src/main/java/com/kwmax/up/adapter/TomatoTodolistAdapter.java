@@ -1,6 +1,7 @@
 package com.kwmax.up.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kwmax.up.R;
+import com.kwmax.up.activity.CountDownActivity;
 import com.kwmax.up.db.TomatoTodoOperation;
 import com.kwmax.up.model.TomatoTodo;
 
@@ -40,8 +42,16 @@ public class TomatoTodolistAdapter extends RecyclerView.Adapter<TomatoTodolistAd
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int pos) {
 
         TomatoTodo todo = tomatoTodoList.get(pos);
-        viewHolder.dura.setText(TextUtils.isEmpty(todo.getDuration())?"":todo.getDuration());
-        viewHolder.content.setText(TextUtils.isEmpty(todo.getContent())?"":todo.getContent()+"min");
+        viewHolder.dura.setText(TextUtils.isEmpty(todo.getDuration())?"":todo.getDuration()+"min");
+        viewHolder.content.setText(TextUtils.isEmpty(todo.getContent())?"":todo.getContent());
+
+        viewHolder.start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CountDownActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     public void refresh(){
@@ -60,12 +70,14 @@ public class TomatoTodolistAdapter extends RecyclerView.Adapter<TomatoTodolistAd
         private ImageView selected;
         private TextView content;
         private TextView dura;
+        private TextView start;
 
         public ViewHolder(View itemView) {
             super(itemView);
             selected = itemView.findViewById(R.id.tomato_selected);
             dura = itemView.findViewById(R.id.tomato_dura);
             content = itemView.findViewById(R.id.tomato_content);
+            start = itemView.findViewById(R.id.start);
         }
     }
 }

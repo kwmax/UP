@@ -21,10 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="快速开始"
-            android:textColor="@color/gray"/>
+            android:textColor="@color/gray"
+            android:layout_marginBottom="5dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="40dp">
 
             <EditText
                 android:id="@+id/quick_name"
@@ -39,13 +40,15 @@
                 android:text="25min"
                 android:layout_toLeftOf="@+id/quickstart"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
             <Button
                 android:id="@+id/quickstart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="快速开始"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_btn"/>
 
         </RelativeLayout>
 
@@ -62,13 +65,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="任务列表"
+            android:layout_marginBottom="5dp"
             android:textColor="@color/gray"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/tomato_todolist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
             android:visibility="visible">
         </android.support.v7.widget.RecyclerView>
 

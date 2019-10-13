@@ -1,163 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_toolbar_noback" />
-
-    <RelativeLayout
-        android:id="@+id/avator_layout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/inspiration"
+        <include layout="@layout/layout_toolbar_noback" />
+
+        <RelativeLayout
+            android:id="@+id/avator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/inspiration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightblue"
+                android:visibility="gone" />
+
+            <com.kwmax.up.widget.RoundImageView
+                android:id="@+id/avator"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/inspiration"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/avator"
+                app:border_inside_color="@color/white"
+                app:border_outside_color="@color/white"
+                app:border_thickness="1.5dp" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/avator"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="用户名" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lead_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lightblue"
-            android:visibility="gone"/>
+            android:orientation="horizontal">
 
-        <com.kwmax.up.widget.RoundImageView
-            android:id="@+id/avator"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_below="@+id/inspiration"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/avator"
-            app:border_inside_color="@color/white"
-            app:border_outside_color="@color/white"
-            app:border_thickness="1.5dp" />
-
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/avator"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:text="用户名" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/lead_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/totoal_learningtime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/totoal_learningtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="2h"
-                android:textSize="20dp" />
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@color/white">
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="2h"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="累计学习" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/today_remind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="累计学习"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="今日提醒" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/today_achieve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="0"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="今日达成" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/today_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="0"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="今日复盘" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/today_remind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="2"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="今日提醒"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/today_achieve"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="0"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="今日达成"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/today_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="0"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="今日复盘"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/more_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/discipline_model"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/model_image"
@@ -169,17 +172,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="提醒模板"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/model_image"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20dp"/>
+                    android:text="提醒模板"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/turn_to"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/turn_to" />
 
             </RelativeLayout>
 
@@ -187,10 +190,10 @@
                 android:id="@+id/discipline_countdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/countdown_image"
@@ -202,17 +205,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="重要日期"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/countdown_image"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20dp"/>
+                    android:text="重要日期"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/turn_to"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/turn_to" />
 
             </RelativeLayout>
 
@@ -220,10 +223,10 @@
                 android:id="@+id/discipline_encourage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/encourage_image"
@@ -235,17 +238,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="激励语句"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/encourage_image"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20dp"/>
+                    android:text="激励语句"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/turn_to"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/turn_to" />
 
             </RelativeLayout>
 
@@ -253,10 +256,10 @@
                 android:id="@+id/discipline_target"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/target_image"
@@ -268,17 +271,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="目标"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/target_image"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20dp"/>
+                    android:text="目标"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/turn_to"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/turn_to" />
 
             </RelativeLayout>
 
@@ -286,10 +289,10 @@
                 android:id="@+id/discipline_setting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/setting_image"
@@ -301,17 +304,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="设置"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/setting_image"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20dp"/>
+                    android:text="设置"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/turn_to"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/turn_to" />
 
             </RelativeLayout>
 
@@ -319,10 +322,10 @@
                 android:id="@+id/discipline_aboutus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/aboutus_image"
@@ -334,17 +337,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="关于我们"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/aboutus_image"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20dp"/>
+                    android:text="关于我们"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/turn_to"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/turn_to" />
 
             </RelativeLayout>
 
@@ -352,10 +355,10 @@
                 android:id="@+id/discipline_loginout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:padding="5dp"
-                android:clickable="true">
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/loginout_image"
@@ -367,22 +370,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="退出账号"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/loginout_image"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20dp"/>
+                    android:text="退出账号"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/turn_to"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/turn_to" />
 
             </RelativeLayout>
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
 
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

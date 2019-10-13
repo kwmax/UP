@@ -23,6 +23,16 @@ import com.kwmax.up.operateTomatoListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
 /**
  * Created by kwmax on 2019/3/10.
  */
@@ -77,13 +87,27 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
                 final TomatoAddDialog dialogFragment = TomatoAddDialog.getInstance("添加番茄任务");
                 dialogFragment.show(getFragmentManager(), new operateTomatoListener() {
                     @Override
-                    public void addTomato(String tomato, String minCount) {
-                        TomatoTodo tomatoTodo = new TomatoTodo();
-                        tomatoTodo.setContent(tomato);
-                        tomatoTodo.setDuration(minCount);
-                        TomatoTodoOperation.insertData(getActivity(),tomatoTodo);
-                        adapter.refresh();
-                        dialogFragment.dismiss();
+                    public void addTomato(final String tomato, final String minCount) {
+                        Observable.create(new ObservableOnSubscribe<TomatoTodo>() {
+                            @Override
+                            public void subscribe(ObservableEmitter<TomatoTodo> emitter) throws Exception {
+                                TomatoTodo tomatoTodo = new TomatoTodo();
+                                tomatoTodo.setContent(tomato);
+                                tomatoTodo.setDuration(minCount);
+                                TomatoTodoOperation.insertData(getActivity(),tomatoTodo);
+                                emitter.onNext(tomatoTodo);
+                                emitter.onComplete();
+                                return;
+                            }
+                        }).subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Consumer<TomatoTodo>() {
+                                    @Override
+                                    public void accept(TomatoTodo tomatoTodo) throws Exception {
+                                        adapter.refresh();
+                                        dialogFragment.dismiss();
+                                    }
+                                });
                     }
 
                     @Override
@@ -105,15 +129,16 @@ public class TomatoTabFragment extends BasicFragment implements View.OnClickList
                 break;
             case R.id.quickstart:
                 String quickname = quickName.getText().toString().trim();
-
-                Intent intent = new Intent(getActivity(), CountDownActivity.class);
-                startActivity(intent);
-
+                turn2CountdownActivity();
                 break;
             default:
                 break;
         }
     }
 
+    private void turn2CountdownActivity(){
+        Intent intent = new Intent(getActivity(), CountDownActivity.class);
+        startActivity(intent);
+    }
 
 }

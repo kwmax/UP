@@ -21,6 +21,7 @@ public class ViewPageIndicatorActivity extends BasicActivity {
     private RadioGroup mTabRadioGroup;
     private SparseArray<Fragment> mFragmentSparseArray;
 
+    private Fragment currentFragment;
     private ScheduleTabFragment scheduleTabFragment;
     private TomatoTabFragment tomatoTabFragment;
     private NoteTabFragment noteTabFragment;
@@ -55,9 +56,14 @@ public class ViewPageIndicatorActivity extends BasicActivity {
                 // 具体的fragment切换逻辑可以根据应用调整，例如使用show()/hide()
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         mFragmentSparseArray.get(checkedId)).commit();
+
+//                getFragmentManager().beginTransaction().hide(currentFragment)
+//                        .show(mFragmentSparseArray.get(checkedId)).commit();
+//                currentFragment
             }
         });
         // 默认显示第一个
+        currentFragment = tomatoTabFragment;
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
                 mFragmentSparseArray.get(R.id.tomato_tab)).commit();
 
