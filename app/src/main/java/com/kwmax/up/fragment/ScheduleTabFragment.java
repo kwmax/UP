@@ -63,7 +63,8 @@ public class ScheduleTabFragment extends BasicFragment {
                 startActivity(intent);
             }
         });
-
+        view.findViewById(R.id.menu1).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.menu2).setVisibility(View.VISIBLE);
         initData();
     }
 
